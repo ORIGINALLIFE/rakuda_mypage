@@ -1,0 +1,246 @@
+{
+  "name": "@ORIGINALLIFE/rakuda_mypage",
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "license": "UNLICENSED",
+  "author": "kitahashiryoichi <ryoichi.kitahashi@original-life.co.jp>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ORIGINALLIFE/rakuda_mypage.git"
+  },
+  "engines": {
+    "node": ">=16.15.0"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn run lint:ts",
+      "git add"
+    ],
+    "*.scss": [
+      "yarn run lint:scss",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "avoid",
+    "proseWrap": "preserve"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "plugin:react/recommended",
+      "prettier/@typescript-eslint"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "react-hooks",
+      "simple-import-sort"
+    ],
+    "env": {
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ],
+      "@typescript-eslint/ban-ts-comment": "warn",
+      "@typescript-eslint/ban-types": "warn",
+      "react/display-name": "off",
+      "react/prop-types": "off",
+      "react-hooks/rules-of-hooks": "warn",
+      "simple-import-sort/imports": "error",
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ],
+      "@typescript-eslint/naming-convention": [
+        "warn",
+        {
+          "selector": "default",
+          "format": [
+            "camelCase"
+          ]
+        },
+        {
+          "selector": "variable",
+          "format": [
+            "camelCase",
+            "UPPER_CASE",
+            "PascalCase"
+          ],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": "parameter",
+          "format": [
+            "camelCase",
+            "PascalCase"
+          ],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": "class",
+          "format": [
+            "PascalCase"
+          ]
+        },
+        {
+          "selector": "interface",
+          "format": [
+            "PascalCase"
+          ]
+        },
+        {
+          "selector": "property",
+          "format": [
+            "camelCase",
+            "UPPER_CASE",
+            "PascalCase",
+            "snake_case"
+          ],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": "enum",
+          "format": [
+            "UPPER_CASE",
+            "PascalCase"
+          ]
+        },
+        {
+          "selector": "function",
+          "format": [
+            "camelCase",
+            "PascalCase"
+          ],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": "typeAlias",
+          "format": [
+            "PascalCase"
+          ]
+        },
+        {
+          "selector": "typeParameter",
+          "format": [
+            "PascalCase"
+          ],
+          "leadingUnderscore": "allow"
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    ".cache",
+    ".coverage",
+    ".next",
+    "node_modules",
+    "**/*.test.tsx"
+  ],
+  "stylelint": {
+    "extends": [
+      "stylelint-config-prettier",
+      "stylelint-config-property-sort-order-smacss",
+      "stylelint-config-recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.scss"
+        ],
+        "customSyntax": "postcss-scss"
+      }
+    ],
+    "rules": {
+      "no-empty-source": null,
+      "declaration-colon-newline-after": null,
+      "no-descending-specificity": null,
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "at-root",
+            "mixin",
+            "include",
+            "content",
+            "function",
+            "for",
+            "if",
+            "return",
+            "else",
+            "each",
+            "use"
+          ]
+        }
+      ],
+      "function-no-unknown": [
+        true,
+        {
+          "ignoreFunctions": [
+            "/^map\\..+/",
+            "/^color\\..+/",
+            "/^math\\..+/",
+            "/^transparentize/",
+            "/^percentage/"
+          ]
+        }
+      ],
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global",
+            "local"
+          ]
+        }
+      ],
+      "no-invalid-position-at-import-rule": null
+    }
+  },
+  "dependencies": {
+    "react": "^16.14.0"
+  },
+  "devDependencies": {
+    "@types/react": "16.14.28",
+    "typescript": "^3.7.5"
+  }
+}
